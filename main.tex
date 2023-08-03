@@ -1,0 +1,878 @@
+% MIT License
+
+% Copyright (c) [2023] [Eduardo Toledo Campos] [eduardotcampos@usp.br]
+
+% Theme created for Univerity of São Paulo Institute of chemistry.
+
+% Images of the file present in the Attachments folder.
+
+% Background logo of the slides can be substituted in the Attachments folder by 
+% a desired one, that should be renamed to logo.png or logo.svg
+
+% Thanks to original latex timeline code creator claudio.fiandrino@gmail.com 
+
+% Github https://github.com/cfiandra/timeline tikzlibrarytimeline.code.tex moved
+% to the timeline diagrams folder, the github also contains timeline example of 
+% latex file to be consulted.
+
+% Chemformula and chemfig packages used in chemistry writings and drawings, can 
+% be removed if this 2 elements are not desired.
+
+% Chemistry drawing are created by converting a .mol molecule file by the 
+% mol2chemfigPy3 python package, available in pypi and in 
+% https://github.com/Augus1999/mol2chemfigPy3
+
+% Thanks to Augus1999 mol2chemfigPy3 creator.
+
+% Citations in Quaderni degli Avogadro Colloquia style.
+
+% Theme headline navigation bar, image caption, footnote and background logo 
+% defineds in beameroutertheme file.
+
+% Color palette defined in the beamercolortheme file.
+
+% Font sizes and style defined in beamerfonttheme file.
+
+% Results part removed from the theme, due to not have being published yet.
+
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+
+
+%##########%
+% Packages %
+%##########%
+
+
+\documentclass[aspectratio=169,fleqn,table]{beamer}
+\newsavebox{\longestsec}
+\mode<presentation>
+\usetheme{IqDu}
+\setbeamertemplate{navigation symbols}{}
+\pdfpageattr{/Group <</S /Transparency /I true /CS /DeviceRGB>>}
+\usepackage{arevmath}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\usepackage{helvet}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+\usepackage{chemformula}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+\begin{document}
+
+
+%#######%
+% Title %
+%#######%
+
+
+\begin{frame}[plain]
+	
+    \titlepage
+  
+\end{frame}
+
+
+%#######%
+% Index %
+%#######%
+
+
+\begin{frame}[plain]
+\frametitle{Index}
+
+\hfill
+\parbox[t]{.55\textwidth}{
+    \scriptsize
+    \begin{minipage}[c][0.4\textheight]{\textwidth}
+    \tableofcontents
+    \end{minipage}
+    
+}
+\end{frame}
+
+%##############%
+% Introduction %
+%##############%
+
+
+\section{Introduction}
+
+
+% Motivation
+\subsection{Motivations}
+\begin{frame}
+\frametitle{Motivations}
+
+\begin{itemize}
+    \item
+    Numerous applications of singlet oxygen
+    \item
+    Active development research area
+    \item
+    Necessity of new sensitizer composites development, to overcome boundries of the area
+\end{itemize}
+
+\end{frame}
+
+
+% Project 
+\subsection {Project}
+\begin{frame}[plain]
+\frametitle{Project}
+
+\vspace{-35pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=0.95\textwidth]{Project/project.pdf}
+\end{figure}
+
+\end{frame}
+
+% Insertion of a big image, with de definition
+% of 4 zoom boxes, for better visualization of 
+% the image subareas
+
+% Reactive oxygen species
+\subsection{Reactive oxygen species}
+\begin{frame}<1>[label=zooms]
+\frametitle<1>{Reactive oxygen species}
+    
+\framezoom<1><2>(2cm,-0.1cm)(1.3cm,2.95cm)
+\framezoom<1><3>(2cm,3cm)(1.3cm,2.95cm)
+\framezoom<1><4>(6.5cm,0.1cm)(0.7cm,2.6cm)
+\framezoom<1><5>(6.5cm,2.7cm)(1cm,2.7cm)
+\begin{center}
+    \vspace{-14pt}
+    \pgfimage[width=0.7\textwidth]{Attachments/ROS_Quali.png}
+    \vspace{-10pt}
+\end{center}
+    
+\end{frame}
+\againframe<2->[plain]{zooms}
+
+
+% Singlet oxygen
+\subsection{Singlet oxygen}
+
+\begingroup
+\setbeamertemplate{caption}{%
+\begin{beamercolorbox}[wd=.2\paperwidth, sep=.2ex]{block body}\insertcaption%
+\end{beamercolorbox}%
+}
+\begin{frame}
+\frametitle{Singlet oxygen ($\ch{^1$\Delta$_g}$)}
+
+\begin{figure}\centering
+\begin{minipage}[b]{0.46\textwidth}
+	\centering
+	\vspace{-10pt}
+	\pgfimage[width=1\textwidth]{Attachments/GO_OD.png}
+    \vspace{-5pt}
+	\caption{%
+    \textit{Groundstate $\ch{^3$\Sigma${{_g}{^-}}}$}}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.46\textwidth}
+	\centering
+	\vspace{-10pt}
+	\pgfimage[width=1\textwidth]{Attachments/SO_OD.png}
+    \vspace{-5pt}
+	\caption{%
+    \textit{Excited state  $\ch{^1$\Delta$_g}$}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Photosensitized oxidation reactions type I and II
+\begingroup
+\setbeamertemplate{footline}{}
+\subsection{Photosensitized oxidation reactions}
+\begin{frame}
+\blfootnote{[1] M.S. Baptista et al., Photochemistry and Photobiology, 2017, 93, 912.}
+\frametitle{Photosensitized oxidation reactions type I and II}
+  
+\begin{itemize}
+	\item
+	Have oxygen as reactant
+    \item
+    Abstraction of one elctron or hydrogen atom as oxidizing step
+    \item
+    $\ch{O2}$ participates in one of the following ways:
+    \begin{enumerate}
+    	\item
+    	Directly, as one electron oxidizer
+        \item
+        Indirectly, by the generation of $\ch{O2^{.-}}$
+    \end{enumerate}
+\end{itemize}
+    
+\end{frame}
+\endgroup
+
+
+% Photosensitized oxidation reactions type I and II
+\begingroup
+\setbeamertemplate{footline}{}
+\begin{frame}
+\blfootnote{[1] M.S. Baptista et al., Photochemistry and Photobiology, 2017, 93, 912.}
+\frametitle{Photosensitized oxidation reactions type I and II}
+
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.46\textwidth}
+	\centering
+	\vspace{-175pt}
+    \begin{enumerate}
+        \item
+        Type I :
+        \begin{itemize}
+            \item
+            Photoinduced electron transfer
+            \item
+            Formation of $\ch{O}$ e $\ch{HO2^.}$
+        \end{itemize}
+        \item
+        Type II :
+        \begin{itemize}
+            \item
+            Sensibilized formation of $\ch{^1O2}$
+            \item
+            Energy transfer $sensibilizer\ch{-> O2}$
+        \end{itemize}
+    \end{enumerate}
+    \vspace{-10pt}
+    \mybeamerthm{pdtypes}{}
+    \begin{pdtypes}
+        Photodynamic action refers to apoptosis by mechanisms I and II
+    \end{pdtypes}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.5\textwidth}
+	\centering
+	\vspace{-10pt}
+	\pgfimage[width=1.1\textwidth]{Attachments/type1.png}
+    \vspace{-5pt}
+    \caption {%
+    \textit{Example of type I photosensibilized oxidation}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Photodynamic therapy - PDT
+\subsection{Photodynamic therapy - PDT}
+\begingroup
+\setbeamertemplate{footline}{}
+\begin{frame}
+\blfootnote{[2] Thomas J. Dougherty, Outskirt press inc, 2015.}
+\frametitle{Photodynamic therapy - PDT}
+
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.45\textwidth}
+	\centering
+	\vspace{-165pt}
+    \begin{itemize}
+        \item
+        Photosensibilizing agent
+        \begin{itemize}
+            \item
+            Topic administrated or injected
+        \end{itemize}
+        \item
+        Light
+        \item
+        Aims destruction of abnormal cells
+        \item
+        3 steps process:
+        \begin{enumerate}
+            \item{Administration of photosensibilizer drug}
+            \item{Drug activation by light}
+            \item{Targeted cells elimination}
+        \end{enumerate}
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.54\textwidth}
+	\centering
+	\vspace{-10pt}
+	\pgfimage[width=1\textwidth]{Attachments/pdt.png}
+    \caption {%
+    \textit{Example of tumour treatment by PDT}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Timeline
+\begin{frame}[plain]
+\frametitle{PDT development}
+
+\vspace{-35pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=0.95\textwidth]{Timeline/example.pdf}
+\end{figure}
+
+\end{frame}
+
+
+% Chemodynamic therapy - CDT
+\subsection{Chemodynamic therapy - CDT}
+\begin{frame}
+\frametitle{Chemodynamic therapy - CDT}
+
+\begin{itemize}
+	\item
+	ROS generated by chemical reaction
+	\item
+	Doesn't involve light excitation
+	\item
+	Chemical agent is activated by:
+	\begin{itemize}
+    	\item
+        Tumour microenvironment	
+		\begin{enumerate}
+			\item
+			Low pH
+			\item
+			High concentration of specific ions
+		\end{enumerate}
+		\item
+		External stimulus
+		\begin{enumerate}
+			\item
+			Heat
+			\item
+			Ultrasound
+		\end{enumerate}
+	\end{itemize}
+	\item
+	MOFs have important applications
+\end{itemize}     	      
+		      
+\end{frame}
+
+
+% PDT advantages
+\subsection{PDT advantages}
+\begin{frame}
+\frametitle{PDT advantages}
+
+\begin{enumerate}
+	\item
+	Controled activation
+	\item
+	Overcome resistance mechanism 
+	\item
+	Non invasive treatment
+	\item
+	Intensisty control
+	\item
+	High specificity
+\end{enumerate}
+
+\end{frame}
+
+
+% PDT disadvantages
+\subsection{PDT disadvantages}
+\begin{frame}
+\frametitle{PDT disadvantages}
+
+\begin{enumerate}
+	\item\textbf{%
+	Limited light penetration in biological tissues}
+	\item
+	Caution needed with sunlight and intense light sources after treatment
+	\item\textbf{%
+	Low $\ch{O2}$ concentration at the tumour microenvironment}
+\end{enumerate}
+
+\end{frame}
+
+
+%###############%
+% Nanoparticles %
+%###############%
+
+
+\section{Nanoparticles}
+
+
+% Reversible binding of oxygen
+\subsection{Reversible binding of oxygen}
+\begin{frame}
+\frametitle{Nanoparticles}
+\framesubtitle{Reversible binding of oxygen}
+
+\vspace{-25pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=0.85\textwidth]{Attachments/NP_RB.png}
+\end{figure}	
+
+\end{frame}
+
+
+% Plasmonic
+\subsection{Plasmonic}
+\begin{frame}
+\frametitle{Nanoparticles}
+\framesubtitle{Plasmonic}
+
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.45\textwidth}
+	\centering
+	\vspace{-165pt}
+	\begin{itemize}
+		\item
+		Study of behavior and interaction of \textbf{plasmons}
+		\mybeamerthm{plsm}{\textbf{Plasmons}}
+		\begin{plsm}
+			\textbf{Colective oscillation of electrons in a metallic structure , generated by electromagnetic waves}
+		\end{plsm}
+		\item
+		Applications in catalysis, photonics, imaging, sensors, energy conversion, etc...
+	\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.5\textwidth}
+	\centering
+	\vspace{-25pt}
+	\pgfimage[width=1\textwidth]{Attachments/sine_plasmonic_wave.png}
+    \caption {%
+    \textit{Oscilation of a nanoprticle field, under the influence of a electromagnetic wave}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+
+
+% Plasmonic
+\begin{frame}
+\frametitle{Nanoparticles}
+\framesubtitle{Plasmonic}
+
+\begin{enumerate}
+	\item
+	Surface plamon ressonance (SPR)
+	\begin{itemize}
+		\item
+		Absorption
+		\item
+		Diffraction
+		\item
+		Transmission
+	\end{itemize}
+	\item
+	Hot electrons
+\end{enumerate}
+\begin{itemize}
+    \item
+    Light interaction depends on the material design
+\end{itemize}
+
+\end{frame}
+
+
+% Upconversion
+\subsection{Upconversion}
+\begingroup
+\setbeamertemplate{footline}{}
+\begin{frame}
+\blfootnote{[3] I.P. Machado et al., Journal of Alloys and Compounds, 2023, 942, 169083.}
+\frametitle{Nanoparticles}
+\framesubtitle{Upconversion}
+
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.45\textwidth}
+  	\centering
+  	\vspace{-180pt}
+  	\begin{itemize}
+  	\mybeamerthm{uc}{\textbf{Upconversion}}
+  	\begin{uc}
+  		\textbf{Low energy photons conversion process, tipically in the near-infrared, to higher energy photons at the UV-VIS region}
+  	\end{uc}
+  		\item
+  		Rare earth nanoparticles
+		\item
+		May be optimized by plasmonic nanoaprticles
+  	\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.45\textwidth}
+	\centering
+	\vspace{-40pt}
+	\pgfimage[width=0.6\textwidth]{Attachments/np_uc_lucas.png}
+	\caption{%
+	\textit{$\ch{Gd_2O_2S:Er^{3+},Yb^{3+}}$ emission under 980 nm irradiation}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Upconversion
+\begingroup
+\setbeamertemplate{footline}{}
+\begin{frame}
+\blfootnote{[4] X. Bai et al., ACS Applied Materials \& Interfaces, 2020, 12, 21936.}
+\frametitle{Upconversion}
+  
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.5\textwidth}
+	\centering
+	\vspace{-185pt}
+	\begin{enumerate}
+		\item
+		980 nm excitation
+		\item
+		$\ch{^4I_{11/2}}$ e $\ch{^2F_{5/2}(Yb^{3+})}$ ressonance
+		\item
+		\textbf{ESA:} Multiphotons excited state absorption
+		\item
+		\textbf{ETU:} $\ch{Er^{3+}}$ excitation and $\ch{Yb^{3+}}$ non-radiative relaxation
+		\item
+		Multifonon relaxation
+	\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+	\centering
+	\vspace{-35pt}
+	\pgfimage[width=1.1\textwidth]{Attachments/UC_NP.png}
+    \vspace{-6pt}
+    \caption{%
+    \textit{Rare earth crystal upconversion energy diagram}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+%#####
+% MOFs
+%#####
+
+
+\section{MOFs}
+
+
+% Introduction MOF
+\begingroup
+\setbeamertemplate{caption}{%
+\begin{beamercolorbox}[wd=.13\paperwidth, sep=.2ex]{block body}\insertcaption%
+\end{beamercolorbox}%
+}
+\begin{frame}
+\frametitle{MOFs}
+
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.47\textwidth}
+	\centering
+	\vspace{-175pt}
+    \begin{itemize}
+        \item
+        Porous materials
+        \item
+        Cristallyne
+        \item
+        Three-dimensional structured
+        \item
+        \textbf
+        Metallic centers coordinated to \textbf{organic ligands}
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.5\textwidth}
+	\centering
+	\vspace{-35pt}
+	\pgfimage[width=1\textwidth]{Attachments/zif8.png}
+    \caption{%
+    \textit{ZIF-8 structure}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Introduction MOF
+\begin{frame}
+\frametitle{MOFs}
+
+\begin{itemize}
+    \item{Vantagens}
+    \begin{enumerate}
+        \item
+        High porosity
+        \item
+        Structural versatility
+        \item
+        Modullable properties
+        \item
+        High sustentabillity
+    \end{enumerate}
+    \item{Aplications}
+    \begin{enumerate}
+        \item
+        Gas storage and separation
+        \item
+        Catalysis
+        \item
+        Sensors/detection
+        \item
+        Drug delivery
+        \item
+        Energy
+    \end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+
+% Reversible oxygen binding
+\subsection{Reversible oxygen binding}
+\begingroup
+\setbeamertemplate{caption}{%
+\begin{beamercolorbox}[wd=.25\paperwidth, sep=.2ex]{block body}\insertcaption%
+\end{beamercolorbox}%
+}
+\setbeamertemplate{footline}{}
+\begin{frame}
+
+\blfootnote{[5] J. Park et al., Angewandte Chemie International Edition, 2015, 54, 430.}
+\frametitle{MOFs}
+\framesubtitle{Reversible oxygen binding}
+\begin{figure}
+\centering
+\begin{minipage}[border=15pt]{0.45\textwidth}
+    \vspace{-160pt}
+    \begin{itemize}
+        \item
+        Overcome hipoxia conditions in tumour microenvirmoments
+        \item
+        Oxygen adsorption
+        \item
+        Also presents catalysis applications, sensors and gas separations
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\textwidth}
+	\centering
+	\vspace{-35pt}
+	\pgfimage[width=0.8\textwidth]{Attachments/rvsmof.png}
+    \vspace{-6pt}
+    \caption{%
+    \textit{MOF SO-PCN structure}}
+\end{minipage}
+\end{figure}
+
+\end{frame}
+\endgroup
+
+
+% Upconversion
+\subsection{Upconversion}
+\begin{frame}
+\frametitle{MOFs}
+\framesubtitle{Upconversion}
+
+\begin{itemize}
+    \item
+    Classical mechanism on rare earth metallic center MOFs
+    \item
+    \textbf{Triplet-triplet annihilation (TTA)}
+    \item
+    Organic ligand acting as sensitizer
+\end{itemize}
+
+\end{frame}
+
+
+% Upconversion
+\begin{frame}
+\frametitle{MOFs}
+\framesubtitle{Upconversion}
+\begin{enumerate}
+    \item
+    Low energy photon absorption by the organic ligand
+    \item
+    Excitation to long-lived triplet state
+    \item
+    Energy transfer to a triplet state of an "annihilator" molecule
+    \item
+    "Annihilator" transfer to another close annihilator
+    \item
+    Decay of both molecules to a singlet state
+    \item
+    Upconversion photon emission
+\end{enumerate}
+
+\end{frame}
+% PROJETO
+
+\section{Project}
+
+
+% Project
+\begin{frame}[plain]
+\frametitle{Project}
+
+\vspace{-35pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=0.95\textwidth]{Project/project.pdf}
+\end{figure}
+
+\end{frame}
+
+
+
+% SYNTHESIS
+
+\section{Synthesis}
+
+
+\subsection{MOF $\ch{Zn2(SDC)2(An2Py)}$}
+
+% MOF Zn2(SDC)2(An2Py)
+\begin{frame}
+\frametitle{MOF $\ch{Zn2(SDC)2(An2Py)}$}
+\framesubtitle{Anthracene Dicarbaldehyde($\ch{AnAd2}$)}
+
+\vspace{-35pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=1.08\textwidth]{Fluxograms/anad2.pdf}
+\end{figure}
+
+\end{frame}
+
+
+% MOF Zn2(SDC)2(An2Py
+\begin{frame}
+        \frametitle{MOF $\ch{Zn2(SDC)2(An2Py)}$}
+        \framesubtitle{Anthracene dicarbaldehyde ($\ch{AnAd2}$)}
+
+        \begin{figure}\centering
+                \begin{minipage}[b]{0.46\textwidth}
+                        \centering
+                        \vspace{-10pt}
+                        \pgfimage[width=1\textwidth]{Attachments/anad21.jpg}
+                        \vspace{-5pt}
+                        \caption{%
+                                \textit{\ \ \ \ \  System to $\ch{AnAd2}$ synthesis}}
+                \end{minipage}
+                \hfill
+                \begin{minipage}[b]{0.46\textwidth}
+                        \centering
+                        \vspace{-10pt}
+                        \pgfimage[width=1\textwidth]{Attachments/anad22.jpg}
+                        \vspace{-5pt}
+                        \caption{%
+                                \textit{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\ch{AnAd2}$ synthesis}}
+                \end{minipage}
+        \end{figure}
+
+\end{frame}
+
+
+% MOF Zn2(SDC)2(An2Py)
+\begin{frame}
+\frametitle{MOF $\ch{Zn2(SDC)2(An2Py)}$}
+\framesubtitle{9,10-Bis[2-(4-pyridyl)vinyl]anthracene(An2Py)}
+
+\vspace{-35pt}
+\begin{figure}[border=1pt]
+	\pgfimage[width=1.08\textwidth]{Fluxograms/an2py.pdf}
+\end{figure}
+
+\end{frame}
+
+
+%Pd@Ag
+\subsection{Pd@Ag}
+\begin{frame}
+\frametitle{Nanoparticles}
+\framesubtitle{Pd@Ag}
+\begin{figure}
+    \centering
+    \vspace{-40pt}
+    \begin{minipage}[b]{0.46\textwidth}
+        \vspace{-15pt}
+        \begin{table}
+            \vspace{-140pt}
+            \hspace{-20pt}
+            \begin{tabular}
+                {|>{\columncolor{lightnormalblue}}c |>{\columncolor{lightfadingblue}}c | l | l | l | l | l | l | l | l | l |}
+                \toprule
+                \textbf{Pd@Ag} & \textbf{Length} \\
+                \hline
+                count & 361    \\
+                \hline
+                mean  & 18.3   \\
+                \hline
+                std   & 2.2    \\
+                \hline
+                min   & 12.1   \\
+                \hline
+                25\%  & 16.6   \\
+                \hline
+                50\%  & 18.1   \\
+                \hline
+                75\%  & 19.7   \\
+                \hline
+                max   & 26.7   \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.52\textwidth}
+        \centering
+        \vspace{30pt}
+        \pgfimage[width=1.1\textwidth]{Attachments/pdaghist.png}
+        \vspace{-6pt}
+        \caption{%
+            \textit{Nanoparticles size distribution}}
+    \end{minipage}
+\end{figure}
+\end{frame}
+
+% CONCLUSION
+\section{Conclusion}
+
+
+% Next steps
+\subsection{Next steps}
+\begin{frame}
+  \frametitle{Next steps}
+  % Content for Subsection 6.1
+\end{frame}
+
+
+% Conclusão
+\subsection{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+  % Content for Subsection 6.2
+\end{frame}
+
+\end{document}
