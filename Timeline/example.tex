@@ -1,0 +1,136 @@
+% MIT License
+
+% Copyright (c) [2023] [Eduardo Toledo Campos] [eduardotcampos@usp.br]
+
+% Thanks to original latex timeline code creator claudio.fiandrino@gmail.com 
+
+% Github https://github.com/cfiandra/timeline tikzlibrarytimeline.code.tex moved to the timeline
+% diagram folder, the github also contains timeline example of latex file
+
+% Timeline has been defined like the timespan is week (the default), and then a custom interval
+% is set, considering the real timespan (or steps) desired
+
+% Chemformula and chemfig packages used in chemistry writings and drawings, can be removed if
+% this 2 elements are not desired
+
+% \setchemfig is defined to set the chemistry drawings size
+
+% Chemistry drawing are created by converting a .mol molecule file by the mol2chemfigPy3 python
+% package, available in pypi and in https://github.com/Augus1999/mol2chemfigPy3
+
+% Thanks to Augus1999 mol2chemfigPy3 creator
+
+% The generated pdf file will be inserted in the main latex slides
+
+
+%###################%
+% Starting packages %
+%###################%
+
+
+\documentclass[aspectratio=169, border=0.1pt]{standalone}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{timeline}
+\usepackage{chemformula}
+\usepackage{chemfig}
+\setchemfig{atom sep=2.25em}
+\usepackage{helvet}
+\begin{document}
+\begin{tikzpicture}[timespan={}]
+%---------------------------------------------------------
+
+
+%##################%
+% Timeline palette %
+%##################%
+
+% best contrasts in white
+
+%----------------------------------------------------------------------------------
+\definecolor{tlred}{HTML}{DF0233}  % good contrast in white 
+\definecolor{tlpurple}{HTML}{6112A4}  % perfect contrast in white 
+\definecolor{contrastgreen}{HTML}{00540D}  % perfect contrast in white 
+\definecolor{contrastdarkred}{HTML}{960002}  % perfect contrast in white  
+\definecolor{contrastdarkpurple}{HTML}{760096}  % perfect contrast in white
+\definecolor{contrastbluegreen}{HTML}{0B5865}  % perfect contrast in white 
+\definecolor{contrastpink}{HTML}{A10196}  % perfect contrast in white 
+%----------------------------------------------------------------------------------
+
+
+%##########%
+% Interval %
+%##########%
+
+\timeline[custom interval=true]{1897, 1902, 1904, 1924, 1948, 1960, 1994}
+%----------------------------------------------------------------------------------------------
+
+
+%########%
+% Phases %
+%########%
+
+\begin{phases}
+\phase{between week=1 and 2 in 0.01,involvement degree=1.8cm,phase color=tlpurple}
+\phase{between week=2 and 3 in 0.01,involvement degree=1.8cm,phase color=contrastgreen}
+\phase{between week=3 and 4 in 0.01,involvement degree=1.8cm,phase color=tlred}
+\phase{between week=4 and 5 in 0.01,involvement degree=1.8cm,phase color=contrastbluegreen}
+\phase{between week=5 and 6 in 0.01,involvement degree=1.8cm,phase color=contrastdarkpurple}
+\phase{between week=5 and 6 in 0.5,involvement degree=3.2cm,phase color=tlpurple}
+\phase{between week=6 and 7 in 0.01,involvement degree=1.8cm,phase color=contrastdarkpurple}
+\phase{between week=6 and 7 in 0.99,involvement degree=2.4cm,phase color=contrastdarkred}
+\end{phases}
+
+
+%############%
+% Milestones %
+%############%
+
+% 1897
+
+\addmilestone{at=phase-1.090,direction=90:5cm,text=\tiny\chemfig{[,.85]*6(=-*6(-N=*6(-=-=-)-=-)=-=-)},text options={above}}
+\addmilestone{at=phase-1.270,direction=270:4cm,text=\normalsize\textcolor{tlpurple}{Acrinidine toxicity experiments},text options={below}}
+
+
+% 1902
+
+\addmilestone{at=phase-2.270,direction=270:3.5cm,text=\normalsize\textcolor{contrastgreen}{eosine PDT},text options={below}}
+\addmilestone{at=phase-2.080,direction=90:1.5cm,text={\tiny\chemfig{[,.85]O=[:30]-[:90](-[:150]Br)=_[:30]-[:330]=_[:30](-[:90]-[:50](-[:350](-[:290]{O^-}(-[:202.1,-0.984,,,draw=none]{Na^+})-[:303.7,3.055,,,draw=none]{Na^+})=[:50]O)=^[:110]-[:170]=^[:230]-[:290]=^[:350])-[:330]=_[:30]-[:330](-[:30]Br)=_[:270](-[:330]{O^-})-[:210](-[:270]Br)=_[:150](-[:90])-[:210]O-[:150](-[:90])=_[:210](-[:150])-[:270]Br}},text options={above}}
+
+
+
+% 1904
+
+\addmilestone{at=phase-3.285,direction=270:3cm,text=\normalsize\textcolor{tlred}{Human topic applications},text options={below}}
+\addmilestone{at=phase-3.090,direction=90:0.8cm,text=\normalsize\textcolor{tlred}{Photonsensitive dye},text options={above}}
+
+
+% 1924
+
+\addmilestone{at=phase-4.285,direction=270:2.5cm,text=\normalsize\textcolor{contrastbluegreen}{Skin cancer applications},text options={below}}
+\addmilestone{at=phase-4.090,direction=90:1.5cm,text=\normalsize\textcolor{contrastbluegreen}{Eosine},text options={above}}
+
+
+% 1948
+
+\addmilestone{at=phase-5.260,direction=270:2cm,text=\normalsize\textcolor{contrastdarkpurple}{Porfirine used in diagnosis},text options={below}}
+
+
+% 1948-1960
+
+\addmilestone{at=phase-6.100,direction=90:1cm,text=\tiny\chemfig{[,.85]?=[::+72]*5(-N=(-=[::-72]*5(-[,,,2]HN-[,,2](=-[::-36]*5(=N-(=-[::-72]*5(-NH-[,,1]?=-=))-=-))-=-))-=-)},text options={above}}
+
+
+% 1960
+
+\addmilestone{at=phase-6.330,direction=270:1.5cm,text=\normalsize\textcolor{contrastdarkpurple}{Selective porfirine in cancer},text options={below}}
+
+
+% 1994
+
+\addmilestone{at=phase-8.295,direction=270:0.5cm,text=\normalsize\textcolor{contrastdarkred}{Regulatory agencies approvals},text options={below}}
+\addmilestone{at=phase-8.080,direction=90:2cm,text=\tiny\chemfig{[,.9]O=[:270,1.014](-[:329.5,,,1]OH)-[:210.5]-[:149.5]-[:210.5]-[:156,0.999]=[:123.1,1.301]-[:175,1.291]=^[:101.6,1.009](-[:48,1.023]-[:348.4,1.009]-[:48,1.023](-[:348.4,1.009,,1]OH)=[:107.5,1.01]O)-[:174.1,0.994](-[:120.5])=^[:244.7,1.009](-[:318,1.023]{N}{H}-[:30.5])-[:213.1,1.301]=[:265,1.291]-[:300.5]N=_[:227,1.004](-[:156,0.999](-[:210.5])=_[:84.1,0.994](-[:138,1.023](-[:197.5,1.01,,2]HO)-[:78.4,1.009])-[:11.6,1.009])-[:303.1,1.301]=[:355,1.291]-[:30.5]{N}{H}-[:318,1.023](=[:33.1,1.301]-[:85,1.291](=_[:121.2,0.978]N-[:48,1.023])-[:11.6,1.009](-[:318,1.023])=^[:84.1,0.994])-[:246,0.999](-[:300.5])=_[:174.1,0.994](-[:103,1.015])-[:228,1.023]-[:287.5,1.01]},text options={above}}
+
+\end{tikzpicture}
+
+\end{document}

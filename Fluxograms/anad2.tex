@@ -1,0 +1,105 @@
+\documentclass[tikz, margin=3mm]{standalone}
+\usepackage{chemformula}
+
+%######################%
+% Lighter Blue palette %
+%######################%
+
+%----------------------------------------------------------------------------------
+\definecolor{lightstrongblue}{HTML}{4E7EC5}
+\definecolor{lightnormalblue}{HTML}{79A0DA}
+\definecolor{lightfadingblue}{HTML}{98B4E3}
+\definecolor{lightweakblue}{HTML}{B9CBEC}
+\definecolor{almostwhiteblue}{HTML}{CAD7F0}
+%----------------------------------------------------------------------------------
+
+
+%##############################%
+% Darker blue palette elements %
+%##############################%
+
+%----------------------------------------------------------------------------------
+\definecolor{darkstrongblue}{HTML}{214598} 
+\definecolor{neutralblue}{HTML}{4564B7}
+\definecolor{fadedblue}{HTML}{6E7FC7}
+\definecolor{whitishblue}{HTML}{9AA2D8}
+\definecolor{paleblue}{HTML}{CACCEB}
+%----------------------------------------------------------------------------------
+
+\usetikzlibrary{arrows.meta,
+                chains,
+                positioning,
+                shapes.geometric
+                }
+                
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1.5cm,
+draw=black,
+text width=35mm,
+align=center,
+font=\linespread{1.4}\selectfont,
+fill=darkstrongblue!30]
+
+\tikzstyle{inpout} = [trapezium, 
+trapezium stretches=true,
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1.5cm,
+draw=black,
+text width=35mm,
+align=center,
+font=\linespread{1.4}\selectfont,
+fill=neutralblue!30]
+
+\tikzstyle{proc} = [rectangle, 
+minimum width=3cm, 
+minimum height=1.5cm,
+draw=black,
+align=center,
+text width=35mm,
+font=\linespread{1.4}\selectfont,
+fill=fadedblue!30]
+
+\tikzstyle{dec} = [diamond, 
+minimum width=3cm, 
+minimum height=1.5cm, 
+text centered, 
+draw=black,
+text width=35mm,
+align=center,
+font=\linespread{1.4}\selectfont,
+fill=whitishblue!30]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{document}
+\begin{tikzpicture}
+
+\node (start) [startstop] {\Large{$\ch{AnBr2}$\\ $\ch{Et2O}$}};
+\node (proc1) [proc, right of=start, xshift=4.5cm] {\Large{${0^\circ C}$\\ Stirring}};
+\node (reag1) [inpout, right of=proc1, xshift=4.5cm] {\Large{$\ch{n-BuLi}$}};
+\node (proc2) [proc, right of=reag1, xshift=4.5cm] {\Large{${-78^\circ C}$\\ Stirring}};
+\node (reag2) [inpout, right of=proc2, xshift=4.5cm] {\Large{$\ch{DMF}$}};
+\node (proc3) [proc, right of=reag2, xshift=4.5cm] {\Large{A.T\\ Stirring}};
+\node (reag3) [inpout, below of=proc3, yshift=-2.25cm] {\Large{$\ch{H2O}$\\}};
+\node (proc4) [proc, left of=reag3, xshift=-4.5cm] {\Large{Extraction\\ $\ch{CH2Cl2}$}};
+\node (proc5) [proc, left of=proc4, xshift=-4.5cm] {\Large{Washing\\ $\ch{H2O}$}};
+\node (proc6) [proc, left of=proc5, xshift=-4.5cm] {\Large{Recristalization\\ $\ch{CH2Cl2}$}};
+\node (stop) [startstop, left of=proc6, xshift=-4.5cm] {\Large{Filtration\\ $\ch{AnAd2}$}};
+
+\draw [arrow] (start) -- (proc1);
+\draw [arrow] (proc1) -- node[anchor=north] {\Large{1h}} (reag1);
+\draw [arrow] (reag1) -- node[anchor=north] {\Large{1h}} (proc2);
+\draw [arrow] (proc2) -- node[anchor=north] {\Large{2h}} (reag2);
+\draw [arrow] (reag2) -- node[anchor=north] {\Large{8h}} (proc3);
+\draw [arrow] (proc3) -- node[anchor=east] {\Large{3h}} (reag3);
+\draw [arrow] (reag3) -- node[anchor=north] {\Large{10 min}} (proc4);
+\draw [arrow] (proc4) -- (proc5);
+\draw [arrow] (proc5) -- (proc6);
+\draw [arrow] (proc6) -- (stop);
+%\draw [arrow] (d) -- node[anchor=east] {yes} (e);
+    
+\end{tikzpicture}
+\end{document}

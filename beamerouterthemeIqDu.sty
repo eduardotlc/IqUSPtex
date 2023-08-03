@@ -1,0 +1,89 @@
+%##########%
+% Packages %
+%##########%
+
+\useoutertheme{smoothbars}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{lipsum}
+
+
+%#################%
+% Background logo %
+%#################%
+
+% Logo to be inserted at the background of every frame
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[opacity=0.1] at (current page.center) {\includegraphics[width=3cm]{Attachments/logo.png}};
+  \end{tikzpicture}
+}
+
+
+%############%
+% Foot notes %
+%############%
+
+% Principal footline, with a custom name at the left, and the page numbers at right
+
+\setbeamertemplate{footline}{
+	\leavevmode
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle (\paperwidth, 0);
+		\shade[left color=darkstrongblue!80, middle color=fadedblue, right color=paleblue]
+		(0,0) rectangle (\paperwidth,0.5);
+        \node[anchor=west, color=black] at (0.1,0.25) {Laboratory of biomolecules lesion};
+		\node[anchor=west, color=black] at (14.8,0.225) {\insertframenumber/\inserttotalframenumber};
+	\end{tikzpicture}
+}
+
+% Footnote with inserted text, generating a citation number, to be used to insert citations
+
+\setbeamertemplate{footnote}{
+	\leavevmode
+	\begin{tikzpicture}
+		\useasboundingbox (1,0.13) rectangle (\paperwidth, 0.13);
+		\shade[left color=darkstrongblue!80, middle color=fadedblue, right color=paleblue]
+		(0,0) rectangle (\paperwidth,0.5);
+        \node[anchor=west, color=black] at (0,0.22) {\scriptsize\insertfootnotetext};
+		\node[anchor=west, color=black] at (14.8,0.225) {\insertframenumber/\inserttotalframenumber};
+	\end{tikzpicture}
+}
+
+% Footnote text without generatng a citation number
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+
+%##########%
+% Headline %
+%##########%
+
+% Headline with a navigation bar, generated based in sections and subsections of the document
+
+\setbeamercolor{headline}{fg=white,bg=darkstrongblue!70} % Customize the colors as desired
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[ht=5ex,dp=0.01ex]{headline}
+    \hfill % Push the content to the right side
+    \insertnavigation{\paperwidth} % Insert navigation bar that extends the entire page width
+    \hspace*{0.5em} % Add some horizontal space
+  \end{beamercolorbox}
+}
+
+
+%###############%
+% Image caption %
+%###############%
+
+\setbeamertemplate{caption}{%
+\begin{beamercolorbox}[wd=.35\paperwidth, sep=.2ex]{block body}\insertcaption%
+\end{beamercolorbox}%
+}
+
+
+

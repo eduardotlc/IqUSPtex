@@ -1,0 +1,65 @@
+%#############%
+% Itens style %
+%#############%
+
+% Available innerthemes: rounded, simplelines, circles, 
+
+\useinnertheme{circles}
+
+%############%
+% Title Page %
+%############%
+
+\setbeamercolor{titlebox}{bg=lightnormalblue, fg=black}
+\setbeamertemplate{title page}{
+  \begin{centering}
+  	\vskip1em\par
+    \begin{beamercolorbox}[sep=3pt,center]{titlebox}
+      \usebeamerfont{title}\inserttitle\par
+    \end{beamercolorbox}
+    \vskip1.5em\par
+    \begin{beamercolorbox}[sep=12pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=20pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=15pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+
+%######%
+% Data %
+%######%
+
+\title{Design of MOF nanocomposites with supported nanoparticles focused on singlet oxygen related redox processes}
+
+\author{Student: Eduardo Toledo Campos, \\
+	Advisor: Prof. Dr. Paolo Di Mascio}
+    
+\institute{Departament of fundamental chemistry, \\
+	University of São Paulo}
+    
+\date{\today}
+
+
+%################%
+% Definition box %
+%################%
+
+\usepackage{etoolbox} 
+\setbeamertemplate{theorems}[numbered] 
+\newcommand\mybeamerthm[2]{%
+  \newtheorem*{#1}{#2}%
+  \AtBeginEnvironment{#1}{%
+     \normalsize
+     \setbeamercolor{block body}{fg=black,bg=fadedblue}%
+  }%
+}
+
+
+
+
