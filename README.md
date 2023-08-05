@@ -19,6 +19,8 @@ Copyright (c) <eduardotcampos@usp.br> **[2023]**
 
 _This theme repository assumes user basic LaTeX knowledge to deal with it_
 
+This beamer presentation is my personal master degree qualification presentation, in the singlet oxygen and photodynamic subareas, focused in inorganic materials. The present repo can be used as a base template for other presentations.
+
 ## Used packages
 
 ---
