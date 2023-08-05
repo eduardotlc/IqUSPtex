@@ -4,12 +4,16 @@
 
 ---
 
-|      Overleaf      |
-| :----------------: |
-| [![overbadge]][ol] |
+|      Overleaf      |        License         |      Update    |
+| :----------------: | :--------------------: |  :-----------: |
+| [![overbadge]][ol] | [![mitbadge]][license] |  ![lastupdate] |
 
 [overbadge]: ./Slide_examples/overleaf.svg
 [ol]: https://www.overleaf.com/read/qcftctcccgdg
+[mitbadge]: ./Slide_examples/badgemit.svg
+[license]: https://opensource.org/licenses/MIT
+[lastupdate]: ./Slide_examples/badgeupdate.svg
+
 
 **LaTeX beamer presentation theme, created for the University of São Paulo institue of chemistry (IQ-USP)**
 
